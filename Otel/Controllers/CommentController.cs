@@ -1,28 +1,29 @@
 ﻿using BuninessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
+using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Otel.ViewComponents.Comment
+namespace Otel.Controllers
 {
-    public class _AddComment:ViewComponent
+    public class CommentController : Controller
     {
         CommentManager commentManager = new CommentManager(new EfCommentDal());
         [HttpGet]
-        public IViewComponentResult Invoke()
+        public PartialViewResult AddComent()
         {
-            return View();
+            return PartialView();
         }
         [HttpPost]
-        public IViewComponentResult Inkove(EntityLayer.Concrete.Comment p)
+        public PartialViewResult AddComment(Comment p)
         {
             p.CommentDate = Convert.ToDateTime(DateTime.Now.ToShortDateString());
             p.CommentState = true;
             commentManager.TAdd(p);
-            return View();
+            return PartialView();
         }
     }
 }

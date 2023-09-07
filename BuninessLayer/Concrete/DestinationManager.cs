@@ -4,6 +4,7 @@ using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,6 +18,11 @@ namespace BuninessLayer.Concrete
         public DestinationManager(IDestinationDal destinationDal)
         {
             _destinationDal = destinationDal;
+        }
+
+        public List<Destination> GetListByFilter(Expression<Func<Destination, bool>> filter)
+        {
+            throw new NotImplementedException();
         }
 
         public void TAdd(Destination t)

@@ -5,6 +5,7 @@ using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,6 +19,11 @@ namespace BuninessLayer.Concrete
         public FeatureManager(IFeatureDal featureDal)
         {
             _featureDal = featureDal;
+        }
+
+        public List<Feature> GetListByFilter(Expression<Func<Feature, bool>> filter)
+        {
+            throw new NotImplementedException();
         }
 
         public void TAdd(Feature t)
