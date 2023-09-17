@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -17,5 +17,7 @@ namespace EntityLayer.Concrete
         public bool CommentState { get; set; }
         public int DestinationID { get; set; }
         public Destination Destination { get; set; }
+        public int AppUserID { get; set; }
+        public AppUser AppUser { get; set; }
     }
 }
