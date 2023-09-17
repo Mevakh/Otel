@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace TraversalProject.ViewComponents.Default
+namespace TraversalProject.ViewComponents.MemberLayout
 {
-    public class _SliderPartial:ViewComponent
+    public class _MemberLayoutHeaderContent : ViewComponent
     {
         public IViewComponentResult Invoke()
         {

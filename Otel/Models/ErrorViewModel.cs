@@ -1,6 +1,6 @@
 using System;
 
-namespace Otel.Models
+namespace TraversalProject.Models
 {
     public class ErrorViewModel
     {

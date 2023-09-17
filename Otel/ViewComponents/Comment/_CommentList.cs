@@ -1,19 +1,26 @@
-﻿using BuninessLayer.Concrete;
+using BusinessLayer.Abstract;
+using BusinessLayer.Concrete;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
-namespace Otel.ViewComponents.Comment
+namespace TraversalProject.ViewComponents.Comment
 {
-    public class _CommentList : ViewComponent
+    public class _CommentList:ViewComponent
     {
-        CommentManager commentManager = new CommentManager(new EfCommentDal());
+        private readonly ICommentService _commentService;
+
+        public _CommentList(ICommentService commentService)
+        {
+            _commentService = commentService;
+        }
+
         public IViewComponentResult Invoke(int id)
         {
-            var values = commentManager.TGetDestinationById(id);
+            Context context = new Context();
+            ViewBag.commentCount = context.Comments.Where(x => x.DestinationID == id && x.CommentState==true).Count();
+            var values = _commentService.TGetListCommentWithDestinationAndUser(id);
             return View(values);
         }
     }

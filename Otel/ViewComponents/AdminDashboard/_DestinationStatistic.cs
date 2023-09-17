@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace TraversalProject.ViewComponents.Default
+namespace TraversalProject.ViewComponents.AdminDashboard
 {
-    public class _SliderPartial:ViewComponent
+    public class _DestinationStatistic:ViewComponent
     {
         public IViewComponentResult Invoke()
         {
